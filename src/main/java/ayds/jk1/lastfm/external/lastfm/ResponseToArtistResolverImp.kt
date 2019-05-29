@@ -1,14 +1,14 @@
 package ayds.jk1.lastfm.external.lastfm
 
-import ayds.spotisong.aurora.otherdetails.model.Artist
-import ayds.spotisong.aurora.song.model.Song
+import ayds.jk1.lastfm.external.Artist
+import ayds.jk1.lastfm.external.LastFMSong
 import org.xml.sax.InputSource
 import java.io.StringReader
 import javax.xml.parsers.DocumentBuilderFactory
 
-internal class ResponseToArtistResolverImp : ResponseToArtistResolver {
+class ResponseToArtistResolverImp : ResponseToArtistResolver {
 
-    override fun getArtistFromExternalData (serviceData: String, song: Song): Artist {
+    override fun getArtistFromExternalData (serviceData: String, song: LastFMSong): Artist {
 
         lateinit var artist: Artist
         lateinit var description: String
@@ -38,7 +38,7 @@ internal class ResponseToArtistResolverImp : ResponseToArtistResolver {
             null -> description = "No Results"
             else -> description = extract.textContent.replace("\\n", "\n")
         }
-        artist = Artist (song.artistName, description, picturePath)
+        artist = Artist(song.artistName, description, picturePath)
         return artist
     }
 }
