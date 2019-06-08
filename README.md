@@ -15,3 +15,7 @@ ResponseToArtistSolver tiene el metodo getArtistFromExternalData, el cual es lla
 metodo se encarga de armar el componente Artista con su nombre, descripcion y url de la imagen.
 
 LastFMSong es una clase similar a Song, que contiene los mismos parametros, y es utilizada por el submodulo.
+
+Actualizacion Modulo: Se agrego una clase modulo que se usa para retornar el ExternalService de la api. Se tiene que
+llamar a un metodo service() del modulo LastFMModule. Esto va a retornar una instancia de ExternalServiceImp que
+contiene la api de lastFM ya inyectada.
